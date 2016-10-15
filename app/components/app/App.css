@@ -1,0 +1,108 @@
+
+.app {
+  text-align: center;
+  font-size: 12px;
+  margin-left: 5.5px;
+  margin-right: 5.5px;
+  margin-bottom: 5px;
+  float: left;
+  height: 56px;
+  color: #333;
+  cursor: pointer;
+  font-size: 0;
+  position: relative;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.uninstall, .msg {
+  font-size: 10px;
+  position: absolute;
+  line-height: 15px;
+  top: -5px;
+  text-align: center;
+  width: 15px;
+  height: 15px;
+}
+.un .uninstall {
+  transform: scale(1);
+}
+.uninstall {
+  font-size: 12px;
+  overflow: hidden;
+  background: hsla(0, 0%, 100%, .3);
+  border-radius: 50%;
+  color: #000;
+  z-index: 1;
+  left: -3px;
+  transform: scale(0);
+  transform-origin: center;
+  transition: all ease 1s;
+}
+.uninstall::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  filter: blur(20px);
+  margin: -25px;  
+  background: #bbb;
+}
+.msg {
+  background-color: #f66;
+  color: #fff;
+  border-radius: 50%;
+  right: -3px;
+}
+.logo img {
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+figcaption {
+  padding-top: 2px;
+  font-size: 10px;
+  line-height: 1;
+  transform: scale(.9);
+  color: #fff;
+  white-space: nowrap;
+
+}
+
+.logo-shake {
+  animation: shake 1.2s infinite;
+}
+.logo-tada {
+  animation: tada 1.2s;
+}
+
+@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0)
+    rotate(0deg);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-3deg);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes tada {
+  from, to {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(.9, .9, .9);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+}

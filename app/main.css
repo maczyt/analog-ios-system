@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+  min-width: 370px;
+}
+.footer {
+  color: #333;
+  font-size: 12px;
+  text-align: center;
+}
+.bgAllImage img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#iphone {
+  width: 250px;
+  height: 513px;
+  background: url("image/iphone6.png") no-repeat;
+  background-size: 250px 513px;
+  margin: 35px auto;
+  position: relative;
+}
+
+.app-list {
+  width: 100%;
+  margin-top: 18px;
+  padding-left: 5.5px; 
+  padding-right: 5.5px;
+  box-sizing: border-box;
+  height: 280px;
+}

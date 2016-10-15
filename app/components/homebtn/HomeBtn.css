@@ -1,0 +1,11 @@
+.home-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 50%;
+  bottom: 16px;
+  margin-left: -20px;
+  border-radius: 50%;
+  z-index: 2000;
+  cursor: pointer;
+}

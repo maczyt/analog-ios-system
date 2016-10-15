@@ -1,0 +1,10 @@
+.home {
+  width: 216px;
+  height: 385px;
+  top: 63px;
+  background: url("../../image/timg.jpg")  no-repeat;
+  background-size: 216px 385px;
+  position: absolute;
+  left: 17px;
+  overflow: hidden;
+}
