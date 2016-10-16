@@ -1,6 +1,7 @@
 # 模拟IOS系统 
 
 > 模拟苹果手机交互行为及其渲染样式
+> 组件之间的通信机制是`callback`
 
 ## 暂时交互效果
 
@@ -23,6 +24,18 @@
 4. 加入自动截图功能(更好地展示毛玻璃效果)
 5. 解锁密码次数限制
 ```
+
+---
+
+## 下来看看？
+
+``` shell
+$ git clone git@github.com:maczyt/analog-ios-system.git
+$ cd analog-ios-system
+$ npm install
+$ npm start
+```
+
 ## 效果图
 
 ![](ios.gif)
