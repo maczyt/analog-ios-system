@@ -6,6 +6,7 @@ import Bottom from './components/bottom/Bottom.jsx';
 import App from './components/app/app.jsx';
 import HomeBtn from './components/homebtn/HomeBtn.jsx';
 import Lock from './components/lock/Lock.jsx';
+import LockBtn from './components/lockbtn/LockBtn.jsx';
 
 class Main extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class Main extends React.Component {
   state = {
     shake: false,
     showUn: false,
+    openPass: false,
+    closeScreen: true,
     // app 列表
     appList: [
       {
@@ -37,27 +40,31 @@ class Main extends React.Component {
   // 处理点击home键的回调
   backHome = (e) => {
     this.setState({
-      shake: false
+      shake: false,
+      openPass: true,
+      closeScreen: false
     })
   }
+  // 处理关闭屏幕亮度
   render() {
     var appList = [];
     this.state.appList.forEach((app, index) => {
       appList.push(
-        <App data-shake={this.state.shake} key={"key"+index} onShake={this.handleShake} imgSrc={app.imgSrc} appName={app.appName} />
+        <App messageNum={index+Math.ceil(Math.random()*10)} data-shake={this.state.shake} key={"key"+index} onShake={this.handleShake} imgSrc={app.imgSrc} appName={app.appName} />
       )
     })
     return (
       <div>
-        <Home>
+        <Home ref="home">
           <div className="app-list">
             { appList }
           </div>
           <Bottom>
-            <App data-shake={this.state.shake} data-un={this.state.showUn} onShake={this.handleShake} imgSrc="../image/mobile.png" appName="电话" />
-            <App data-shake={this.state.shake} data-un={this.state.showUn} onShake={this.handleShake} imgSrc="../image/note.jpg" appName="印象笔记" />
+            <App messageNum="6" data-shake={this.state.shake} data-un={this.state.showUn} onShake={this.handleShake} imgSrc="../image/mobile.png" appName="电话" />
+            <App messageNum="1" data-shake={this.state.shake} data-un={this.state.showUn} onShake={this.handleShake} imgSrc="../image/note.jpg" appName="印象笔记" />
           </Bottom>
-          <Lock />
+          <LockBtn />
+          <Lock ref="lock" openPass={this.state.openPass}/>
         </Home>
         <HomeBtn onClick={this.backHome}/>
       </div>

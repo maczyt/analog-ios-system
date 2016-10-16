@@ -23,7 +23,7 @@ class App extends React.Component {
         <a className="logo" onDoubleClick={this.handleClick}>
           <img src={ "../"+this.props.imgSrc } />
         </a>
-        <div className="msg">{this.state.messageNum}</div>
+        <div className="msg">{this.props.messageNum || this.state.messageNum}</div>
         <figcaption>{ this.props.appName }</figcaption>
       </figure>
     )

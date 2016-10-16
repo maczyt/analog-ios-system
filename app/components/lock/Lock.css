@@ -1,3 +1,20 @@
+.none {
+  animation: bounceOutRight 2s;
+}
+.not {
+  display: none;
+}
+@keyframes bounceOutRight {
+  20% {
+    opacity: 1;
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
+  }
+}
 .lock-main {
   position: absolute;
   -webkit-user-select:none;
@@ -9,6 +26,18 @@
   background: rgba(0, 0, 0, .8);
   color: #fff;
   font-family: 'Heiti SC', 'Helvetica', 'HelveticaNeue', 'Arial';
+}
+.cover-black {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 3000;
+  background-color: black;
+}
+.bounceOut {
+  animation: bounceOut 1.5s;
+}
+.zoomOut {
+  animation: zoomOut 1.5s;
 }
 h2 {
   font-size: 12px;
@@ -89,6 +118,42 @@ h2 {
 .not-pass a {
   cursor: pointer;
 }
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes bounceOut {
+  20% {
+    transform: scale3d(.7, .7, .7);
+  }
+  50%, 55% {
+    opacity: 1;
+    transform: scale3d(.3, .3, .3);
+  }
+  to% {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1);
+  }
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 
 @keyframes shakes {
   from, to {

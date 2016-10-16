@@ -13,25 +13,43 @@ class Lock extends React.Component {
     inputPass: [], // 输入密码使用数组来存储
     passLen: 0
   }
+  componentDidUpdate() {
+    setTimeout(() => {
+      if (this.props.openPass) {
+        this.refs['cover-t'].style.display = 'none';
+      }
+    }, 2000)
+  }
   handleClick = (index) => {
-    Lock.userData.inputPass.push(index);
-    Lock.userData.passLen ++;
+    if (Lock.userData.passLen < 4) {
+      Lock.userData.inputPass.push(index);
+      Lock.userData.passLen ++;
+    } else {
+      return ;
+    }
     var pl = Lock.userData.passLen;
-    // console.log(this.refs['point0'])
     this.setState({
       pointStatus: (Array.from(new Array(pl), () => true)).concat(Array.from(new Array(4-pl), () => false))
     })
     if (Lock.userData.passLen === 4) {
       if (Lock.userData.initPass === Lock.userData.inputPass.join('')) {
         // 密码正确
+        this.refs.lockMain.classList.add('zoomOut')
+        setTimeout(() => {
+          this.refs.lockMain.classList.remove('zoomOut')
+          this.refs.lockMain.style.display = 'none';
+        }, 800);
       } else {
         this.refs.plist.classList.add('plist-shakes')
-        Lock.userData.passLen = 0;
-        Lock.userData.inputPass.length = 0;
-        this.setState({
-          pointStatus: Array.from(new Array(4), () => false)
-        })
+        setTimeout( () => {
+          this.refs.plist.classList.remove('plist-shakes')
+        }, 1200); 
       }
+      Lock.userData.passLen = 0;
+      Lock.userData.inputPass.length = 0;
+      this.setState({
+        pointStatus: Array.from(new Array(4), () => false)
+      })
     }
   }
   removeInput = (e) => {
@@ -54,7 +72,8 @@ class Lock extends React.Component {
       )
     })
     return (
-      <div className="lock-main">
+      <div className="lock-main" ref="lockMain">
+        <div ref="cover-t" className={this.props.openPass ? "cover-black none" : "cover-black"}></div>
         <h2>Touch ID 或输入密码</h2>
         <div className="point-list" ref="plist">
           <Point isShow={this.state.pointStatus[0]} />
